@@ -1,0 +1,470 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Devices</title>
+<meta name="generator" content="WYSIWYG Web Builder 18 - http://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/Site_yove.css" rel="stylesheet">
+<link href="css/page1.css" rel="stylesheet">
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/jquery.ui.effect.min.js"></script>
+<script src="js/imagemapresizer.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wwb18.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(event)
+{
+   var productsHotspots = document.querySelector('#productsHotspots-tooltip');
+   var bsproductsHotspots = new bootstrap.Tooltip(productsHotspots, {placement: 'top', trigger: 'manual', animation: false});
+   productsHotspots.addEventListener('inserted.bs.tooltip', function(e)
+   {
+      var tipElem = document.getElementById(e.target.getAttribute('aria-describedby'));
+      tipElem.classList.add('productsHotspots-tooltip');
+   });
+   var productsHotspots_areas = document.querySelectorAll('#wb_productsHotspots area');
+   productsHotspots_areas.forEach(area => 
+   {
+      area.addEventListener('mouseover', function(e)
+      {
+         var bounds = e.target.dataset.bounds.split(',');
+         var img = document.getElementById('productsHotspots');
+         var x = (parseInt(bounds[0]) * img.width) / 1000;
+         var y = (parseInt(bounds[1]) * img.height) / 1000;
+         var cx = (parseInt(bounds[2]) * img.width) / 1000;
+         var cy = (parseInt(bounds[3]) * img.height) / 1000;
+         productsHotspots.style.left = x + 'px';
+         productsHotspots.style.top = y + 'px';
+         productsHotspots.style.width = cx + 'px';
+         productsHotspots.style.height = cy + 'px';
+         productsHotspots.setAttribute('data-bs-original-title', area.getAttribute('data-bs-title'));
+         bsproductsHotspots.show();
+      }, true);
+      area.addEventListener('mouseout', function(e)
+      {
+         bsproductsHotspots.hide();
+      }, true);
+   });
+   var product1Dialog = document.querySelector('#product1Dialog');
+   var bsproduct1Dialog = new bootstrap.Modal(product1Dialog);
+   product1Dialog.addEventListener('show.bs.modal', function(e)
+   {
+      var dlg = document.querySelector('#product1Dialog .modal-dialog');
+      dlg.classList.remove('animate-hide');
+      dlg.classList.add('animate-show');
+   });
+   product1Dialog.addEventListener('hide.bs.modal', function(e)
+   {
+      var dlg = document.querySelector('#product1Dialog .modal-dialog');
+      dlg.classList.remove('animate-show');
+      var forceReflow = e.target.offsetWidth;
+      dlg.classList.add('animate-hide');
+   });
+   var product2Dialog = document.querySelector('#product2Dialog');
+   var bsproduct2Dialog = new bootstrap.Modal(product2Dialog);
+   product2Dialog.addEventListener('show.bs.modal', function(e)
+   {
+      var dlg = document.querySelector('#product2Dialog .modal-dialog');
+      dlg.classList.remove('animate-hide');
+      dlg.classList.add('animate-show');
+   });
+   product2Dialog.addEventListener('hide.bs.modal', function(e)
+   {
+      var dlg = document.querySelector('#product2Dialog .modal-dialog');
+      dlg.classList.remove('animate-show');
+      var forceReflow = e.target.offsetWidth;
+      dlg.classList.add('animate-hide');
+   });
+});
+</script>
+<script>
+$(document).ready(function()
+{
+   $('#reviewsImage1').addClass('visibility-hidden');
+   $('#portfolio-image2').addClass('visibility-hidden');
+   $('#reviewsImage1').addClass('visibility-hidden');
+   $('#portfolio-image2').addClass('visibility-hidden');
+   $("a[href*='#header']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#welcome']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_welcome').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#productsLayoutGrid1']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_productsLayoutGrid1').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   function onScrollproductsLayoutGrid1()
+   {
+      var $obj = $("#wb_productsLayoutGrid1");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('reviewsImage1', 'animate-fade-in-up', 0, 1000);
+         AnimateCss('portfolio-image2', 'animate-fade-in-up', 500, 1000);
+      }
+   }
+   onScrollproductsLayoutGrid1();
+   $(window).scroll(function(event)
+   {
+      onScrollproductsLayoutGrid1();
+   });
+   $("a[href*='#galleryLayoutGrid']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_galleryLayoutGrid').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   function onScrollgalleryLayoutGrid()
+   {
+      var $obj = $("#wb_galleryLayoutGrid");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('reviewsImage1', 'animate-fade-in-up', 0, 1000);
+         AnimateCss('portfolio-image2', 'animate-fade-in-up', 500, 1000);
+      }
+   }
+   onScrollgalleryLayoutGrid();
+   $(window).scroll(function(event)
+   {
+      onScrollgalleryLayoutGrid();
+   });
+   $("a[href*='#gallery1']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_gallery1').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#contactLayoutGrid']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_contactLayoutGrid').offset().top }, 600, 'easeOutCirc');
+   });
+   $('#headerMegaMenu .submenu ul li h2 a').addClass('ui-widget-header');
+   $('#headerMegaMenu .submenu ul li a').hover(function()
+   {
+      $(this).addClass('ui-state-hover');
+   }, function()
+   {
+      $(this).removeClass('ui-state-hover');
+   });
+   $('.ui-state-default').hover(function()
+   {
+      $(this).addClass('ui-state-hover');
+   }, function()
+   {
+      $(this).removeClass('ui-state-hover');
+   });
+   $('#headerMegaMenu li').hover(function()
+   {
+      var top = $(this).find('.button').outerHeight();
+      $(this).find('.submenu').css( {'top': top });
+      $(this).find('.submenu').show();
+      var maxWidth = 0;
+      $(this).find('ul').each(function()
+      {
+         $(this).find('li').each(function()
+         {
+            $(this).css('width', 'auto');
+            if ($(this).width() > maxWidth)
+               maxWidth = $(this).width();
+         });
+      });
+      $(this).find('ul').each(function()
+      {
+         $(this).find('li').width(maxWidth);
+         $(this).css({'width' : maxWidth+4});
+      });
+      if ($(this).find('.row').length > 0 )
+      {
+         var maxRowWidth = 0;
+         $(this).find('.row').each(function()
+         {
+            var width = 0;
+            $(this).find('ul').each(function()
+            {
+               width += $(this).width();
+            });
+            if (width > maxRowWidth)
+            {
+               maxRowWidth = width;
+            }
+         });
+         $(this).find('.submenu').css({'width' : maxRowWidth});
+         $(this).find('.row:last').css({'margin': '0'});
+      }
+      else
+      {
+         var width = 0;
+         $(this).find('ul').each(function()
+         {
+            width += $(this).width();
+         });
+         $(this).find('.submenu').css({'width' : width});
+      }
+      $(this).find('.submenu').slideDown();
+   }, function()
+   {
+      $(this).find('.submenu').hide();
+   })
+   $('#headerMegaMenu li .submenu').hide();
+   $('#headerMegaMenu-nav').click(function()
+   {
+      $('body').removeClass('overflow-no-scroll');
+      $('#wb_headerMegaMenu').removeClass('open');
+   });
+   $('#headerMegaMenu-hamburger').click(function()
+   {
+      $('body').addClass('overflow-no-scroll');
+      $('#wb_headerMegaMenu').addClass('open');
+   });
+   $('#wb_productsHotspots map').imageMapResize();
+   var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+   if (iOS)
+   {
+      $('#wb_contactLayoutGrid').css('background-attachment', 'scroll');
+   }
+});
+</script>
+</head>
+<body>
+<div id="wb_header">
+<div id="header">
+<div class="row">
+<div class="col-1">
+<div id="wb_headerMegaMenu" style="display:inline-block;width:100%;text-align:center;z-index:3;">
+<div id="headerMegaMenu-hamburger">
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+</div>
+<div id="headerMegaMenu-nav">
+<div id="headerMegaMenu-close"><a role="button" aria-hidden="true" href="#">&times;</a></div>
+<ul role="menubar" class="ui-widget" id="headerMegaMenu">
+<li role="menuitem">
+<a href="#" class="button ui-state-default"><i class="fa fa-caret-down arrow"></i>INÍCIO</a>
+<div style="padding:0" class="submenu ui-widget-content">
+<ul>
+</ul>
+</div>
+</li>
+<li role="menuitem">
+<a href="#" class="button ui-state-default"><i class="fa fa-caret-down arrow"></i>SERVIÇOS</a>
+<div style="padding:0" class="submenu ui-widget-content">
+<ul>
+<li role="menuitem"><a  href="http://www.wysiwygwebbuilder.com" title="Criação de dominio">DOMINIO</a></li>
+<li role="menuitem"><a  href="http://www.wysiwygwebbuilder.com">CRIAÇÃO DE SITE</a></li>
+<li role="menuitem"><a  href="http://www.wysiwygwebbuilder.com">HOSPEDAGEM DE SITES</a></li>
+<li role="menuitem"><a  href="http://www.wysiwygwebbuilder.com">MANUTEÇÃO E REPARAÇÃO DE COMPUTADORES</a></li>
+<li role="menuitem"><a  href="http://www.wysiwygwebbuilder.com">EMAIL COPORATIVO</a></li>
+<li role="menuitem"><a  href="">VENDA DE APLICATIVOS</a></li>
+<li role="menuitem"><a  href="http://www.wysiwygwebbuilder.com">VENDA DE EQUIPAMENTOS INFORMÁTICOS</a></li>
+<li role="menuitem"><a  href="http://www.wysiwygwebbuilder.com">RECUPERAÇÃO  HD DANIFICADOS</a></li>
+</ul>
+</div>
+</li>
+<li role="menuitem">
+<a href="#" class="button ui-state-default"><i class="fa fa-caret-down arrow"></i>SUPORTE</a>
+<div style="padding:0" class="submenu ui-widget-content">
+<ul>
+<li role="menuitem"><a  href="">ASSISTÊNCIA TÉCNICA REMOTA</a></li>
+<li role="menuitem"><a  href="">HELPDESK</a></li>
+</ul>
+</div>
+</li>
+<li role="menuitem">
+<a href="#" class="button ui-state-default"><i class="fa fa-caret-down arrow"></i>SOBRE NÓS</a>
+<div style="padding:0" class="submenu ui-widget-content">
+<ul>
+<li role="menuitem"><a  href="./misao.html">NOSSA MISÃO</a></li>
+<li role="menuitem"><a  href="./visao.html">NOSSA VISÃO</a></li>
+<li role="menuitem"><a  href="./valores.html">NOSSOS VALORES</a></li>
+</ul>
+</div>
+</li>
+<li role="menuitem">
+<a href="#" class="button ui-state-default"><i class="fa fa-caret-down arrow"></i>CONTACTOS</a>
+<div class="submenu ui-widget-content">
+<div class="row">
+<ul>
+<li><h2></h2></li>
+<li role="menuitem"><a href=""><i class="fa fa-whatsapp icon"></i>996445351</a></li>
+<li role="menuitem"><a href=""><i class="fa fa-check-square-o bullet"></i>955654706</a></li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="wb_welcome">
+<form name="welcome" method="post" action="mailto:yourname@yourdomain.com" enctype="text/plain" id="welcome">
+<div class="col-1">
+<div id="wb_welcomeHeading" style="display:inline-block;width:100%;z-index:0;">
+<h1 id="welcomeHeading">BEM-VINDO</h1>
+</div>
+<div id="wb_welcomeText" style="display:inline-block;width:100%;z-index:1;">
+<h3 id="welcomeText">No Yove, oferecemos uma gama completa de serviços para atender a todas as suas necessidades de informática. Seja para sua empresa ou para uso pessoal, estamos aqui para garantir que tudo funcione perfeitamente. Explore nossos serviços abaixo<br></h3>
+</div>
+<a id="welcomeButton" href="#productsLayoutGrid1" style="display:inline-block;width:200px;height:34px;z-index:2;">Pesquisar</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_productsLayoutGrid1">
+<div id="productsLayoutGrid1">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_productsHeading1" style="display:inline-block;width:100%;z-index:8;">
+<h2 id="productsHeading1">SERVIÇOS</h2>
+</div>
+<div id="wb_productsHeading2" style="display:inline-block;width:100%;z-index:9;">
+<h1 id="productsHeading2">Clique em um dos dispositivos para obter mais informações</h1>
+</div>
+<div id="wb_productsHotspots" style="display:inline-block;width:100%;height:auto;z-index:10;">
+<img src="images/image.png" id="productsHotspots" alt="" usemap="#productsHotspots-map" width="715" height="715">
+<map name="productsHotspots-map">
+</map>
+<div id="productsHotspots-tooltip" style="position:absolute;left:0;top:0;width:16px;height:16px;pointer-events:none"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_productsLayoutGrid2">
+<div id="productsLayoutGrid2">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_galleryLayoutGrid">
+<div id="galleryLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_galleryHeading" style="display:inline-block;width:100%;z-index:11;">
+<h2 id="galleryHeading">PRODUTOS</h2>
+</div>
+<div id="wb_galleryImage3" style="display:inline-block;width:100%;height:auto;z-index:12;">
+<img src="images/Logotipo_Kawes.png" id="galleryImage3" alt="" width="940" height="223">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="upStickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:31;">
+<div id="wb_upIcon" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:13;">
+<a href="#welcome"><div id="upIcon"><i class="fa fa-arrow-up"></i></div></a></div>
+</div>
+<div id="wb_gallery1">
+<div id="gallery1">
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-2">
+</div>
+<div class="col-3">
+</div>
+<div class="col-4">
+</div>
+</div>
+</div>
+</div>
+<div id="wb_contactLayoutGrid">
+<div id="contactLayoutGrid-overlay"></div>
+<div id="contactLayoutGrid">
+<div class="col-1">
+<div id="wb_contactHeading" style="display:inline-block;width:100%;z-index:14;">
+<h1 id="contactHeading">Solicite o seu Orçamento</h1>
+</div>
+<hr id="contactLine" style="display:inline-block;width:105px;z-index:15;">
+<input type="submit" id="contactButton" name="" value="Junte-se a Nós" style="display:block;width: 100%;;height:39px;z-index:16;">
+<div id="wb_contactLink">
+<span style="color:#FFFFFF;font-family:Arial;font-size:12px;">Para alguma questão? <a href="mailto:address@gmail.com">Contacte-nos</a>.</span>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_socialMediaLayoutGrid">
+<div id="socialMediaLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_socialMediaIcon1" style="display:inline-block;width:24px;height:24px;text-align:center;z-index:18;">
+<div id="socialMediaIcon1"><i class="fa fa-facebook"></i></div>
+</div>
+<div id="wb_socialMediaIcon4" style="display:inline-block;width:24px;height:24px;text-align:center;z-index:19;">
+<div id="socialMediaIcon4"><i class="fa fa-instagram"></i></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_footerLayoutGrid">
+<div id="footerLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_footerText">
+<span style="color:#54848D;font-family:Arial;font-size:15px;">© 2024 Copyright</span><span style="color:#304B51;font-family:Arial;font-size:15px;">: </span><span style="color:#FFFFFF;font-family:Arial;font-size:15px;">https://www.yove.com</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="product1Dialog" class="modal fade" role="dialog">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title">Product 1</h4>
+</div>
+<div class="modal-body">
+<div id="wb_product1Image" style="position:absolute;left:26px;top:78px;width:236px;height:236px;z-index:21;">
+<img src="images/device219.jpg" id="product1Image" alt="" width="236" height="236"></div>
+<div id="wb_product1Heading" style="position:absolute;left:26px;top:19px;width:586px;height:35px;z-index:22;">
+<h2 id="product1Heading">Description of Product 1</h2></div>
+<div id="wb_product1Text" style="position:absolute;left:278px;top:78px;width:364px;height:119px;z-index:23;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.</span></div>
+</div>
+</div>
+</div>
+</div>
+<div id="product2Dialog" class="modal fade" role="dialog">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title">Product 2</h4>
+</div>
+<div class="modal-body">
+<div id="wb_product2Image" style="position:absolute;left:26px;top:78px;width:236px;height:236px;z-index:24;">
+<img src="images/device282.jpg" id="product2Image" alt="" width="236" height="236"></div>
+<div id="wb_product2Heading" style="position:absolute;left:26px;top:19px;width:572px;height:35px;z-index:25;">
+<h2 id="product2Heading">Description of Product 2</h2></div>
+<div id="wb_product2Text" style="position:absolute;left:278px;top:78px;width:364px;height:134px;z-index:26;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</span></div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
